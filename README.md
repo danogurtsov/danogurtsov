@@ -40,13 +40,16 @@
 
   </details>
 
+- **Uniswap v4 hook mechanism research** — each repo pairs a working v4 hook with an honest evaluation harness: LP net PnL versus a rebalancing benchmark, the *best-tuned* baselines (not strawmen), rational fee-aware agents, Monte Carlo with confidence intervals, and mainnet fork backtests. The goal is a defensible — sometimes negative — finding, not a marketing claim.
+  - **[LVR-minimizing-dynamic-fee-hook](https://github.com/danogurtsov/LVR-minimizing-dynamic-fee-hook)** (2026) — prices the LP fee from realized volatility to fight loss-versus-rebalancing (LVR). Finding: a backward-looking volatility signal lags the move and does not beat a well-tuned static fee — the value is the measurement framework and the open problem it frames.
+  - **[inventory-aware-fee-skew-hook](https://github.com/danogurtsov/inventory-aware-fee-skew-hook)** (2026) — an asymmetric fee skewed by the pool's live inventory *state* (discount the rebalancing side, surcharge the worsening one). Finding: a lag-free state signal leans ahead of the directional (Nezlobin) fee on signal quality, but the absolute edge is small and within noise, and a vol-aware fee wins under clustering volatility.
+
 _Coming soon — on-chain anomaly detection, oracles, bridges and protocol analytics._
 
 ## Development
 
 - **[noframe-core](https://github.com/danogurtsov/noframe-core)** (2024) — decentralized stablecoin (fixUSD) backed by fixed-yield collateral: CDP engine, oracles, stability pool.
 - **[wMORPHO](https://github.com/danogurtsov/wMORPHO)** (2024) — ERC4626 meta-allocator over MetaMorpho vaults, plus a liquid wrapper for the non-transferable MORPHO token.
-- **[LVR-minimizing-dynamic-fee-hook](https://github.com/danogurtsov/LVR-minimizing-dynamic-fee-hook)** (2026) — a Uniswap v4 hook that prices the LP fee from realized volatility to reduce loss-versus-rebalancing (LVR), with a simulation harness measuring the effect on real mainnet pools.
 
 ## AI & Tooling
 
